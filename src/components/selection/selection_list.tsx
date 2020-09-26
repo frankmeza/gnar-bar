@@ -1,29 +1,21 @@
 import React, { Fragment } from "react";
-import { Item, ItemType } from "../../types";
-import { Handler, SelectionListProps } from "../summary/types";
-
-const renderSelectionItem = (
-    item: Item,
-    itemType: ItemType,
-    handler: Handler,
-) => {
-    const { id, name } = item;
-
-    return (
-        <pre key={id} onClick={() => handler(item)}>
-            {itemType} {name}
-        </pre>
-    );
-};
+import { SelectionListProps } from "../selection/types";
+import SelectionItem from "./selection_item";
 
 const SelectionList = (props: SelectionListProps) => {
     const { handlerFn, itemList, itemType } = props;
 
-    const selections = itemList.map(item =>
-        renderSelectionItem(item, itemType, handlerFn),
+    return (
+        <Fragment>
+            {itemList.map(item => (
+                <SelectionItem
+                    item={item}
+                    itemType={itemType}
+                    handler={handlerFn}
+                />
+            ))}
+        </Fragment>
     );
-
-    return <Fragment>{selections}</Fragment>;
 };
 
 export default SelectionList;
