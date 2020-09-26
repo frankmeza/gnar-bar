@@ -23,20 +23,23 @@ export enum BeerColor {
     DARK = "dark",
     LIGHT = "light",
     RED = "red",
+    UNKNOWN = "unknown",
+}
+
+export interface Beer extends Libation {
+    readonly color: BeerColor;
 }
 
 export enum WineFinish {
     SWEET = "sweet",
     DRY = "dry",
+    UNKNOWN = "unknown",
 }
 
 export enum WineColor {
     RED = "red",
     WHITE = "white",
-}
-
-export interface Beer extends Libation {
-    readonly color: BeerColor;
+    UNKNOWN = "unknown",
 }
 
 export interface Wine extends Libation {
@@ -58,5 +61,5 @@ export interface User {
 export interface UserSession {
     readonly id: string;
     readonly loginTS: number; // unix timestamp
-    readonly user: User;
+    readonly userId: string;
 }
