@@ -1,5 +1,5 @@
 import { Item, ItemMap } from "../../types";
-import { SessionSummaryProps } from "../session_summary";
+import { SummaryItemProps, SummaryProps } from "../summary/types";
 
 interface TabTotals {
     readonly beerTab: number;
@@ -18,7 +18,7 @@ const getTabAmount = (itemMap: ItemMap<Item>) => {
     return total;
 };
 
-export const getAllTabAmounts = (props: SessionSummaryProps): TabTotals => {
+export const getAllTabAmounts = (props: SummaryProps): TabTotals => {
     const { beerList, snackList, wineList } = props;
 
     const beerTab = getTabAmount(beerList);
@@ -32,4 +32,11 @@ export const getAllTabAmounts = (props: SessionSummaryProps): TabTotals => {
         wineTab,
         total,
     };
+};
+
+export const generateSummaryItemList = (
+    item: Item,
+): SummaryItemProps => {
+    const { cost, name } = item;
+    return { cost, name };
 };

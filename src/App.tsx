@@ -1,12 +1,12 @@
 import React, { useEffect, useState, Fragment } from "react";
 
+// components
+import SessionSummary from "./components/summary/summary";
+import SelectionList from "./components/selection/selection_list";
+
 // data-related
 import { beerList, snackList, wineList } from "../item_data";
 import { Beer, ItemType, Item, Snack, Wine } from "./types";
-
-// components
-import SessionSummary from "./components/session_summary";
-import SelectionList from "./components/selection/selection_list";
 
 // utils
 import { createItemMap, handleSelectItem } from "./app_utils";

@@ -1,13 +1,6 @@
 import React, { Fragment } from "react";
 import { Item, ItemType } from "../../types";
-
-type Handler = ((i: Item) => void);
-
-interface SelectionListProps {
-    readonly handlerFn: Handler;
-    readonly itemType: ItemType;
-    readonly itemList: Item[];
-}
+import { Handler, SelectionListProps } from "../summary/types";
 
 const renderSelectionItem = (
     item: Item,
