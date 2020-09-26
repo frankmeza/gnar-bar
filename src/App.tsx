@@ -34,11 +34,11 @@ const App = () => {
     };
 
     const handleSelectSnack = (snack: Item) => {
-        handleSelectItem(snack, winesSelected, setSnacksSelected);
+        handleSelectItem(snack, snacksSelected, setSnacksSelected);
     };
 
     const handleSelectWine = (wine: Item) => {
-        handleSelectItem(wine, snacksSelected, setWinesSelected);
+        handleSelectItem(wine, winesSelected, setWinesSelected);
     };
 
     return (
