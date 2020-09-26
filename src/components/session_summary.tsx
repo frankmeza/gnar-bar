@@ -20,7 +20,10 @@ const SessionSummary = (props: SessionSummaryProps) => {
 
     return (
         <Fragment>
+            <p>TOTALS</p>
             <pre>{JSON.stringify(totals)}</pre>
+
+            <p>SELECTIONS</p>
             <pre>beer: {JSON.stringify(beerNames, null, 4)}</pre>
             <pre>wine: {JSON.stringify(wineNames, null, 4)}</pre>
             <pre>snack: {JSON.stringify(snackNames, null, 4)}</pre>

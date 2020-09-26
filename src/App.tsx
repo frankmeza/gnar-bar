@@ -43,11 +43,6 @@ const App = () => {
 
     return (
         <Fragment>
-            <SessionSummary
-                beerList={createItemMap(beersSelected)}
-                wineList={createItemMap(winesSelected)}
-                snackList={createItemMap(snacksSelected)}
-            />
             <SelectionList
                 itemType={ItemType.BEER}
                 itemList={availableBeers}
@@ -62,6 +57,11 @@ const App = () => {
                 itemType={ItemType.SNACK}
                 itemList={availableSnacks}
                 handlerFn={handleSelectSnack}
+            />
+            <SessionSummary
+                beerList={createItemMap(beersSelected)}
+                wineList={createItemMap(winesSelected)}
+                snackList={createItemMap(snacksSelected)}
             />
         </Fragment>
     );
