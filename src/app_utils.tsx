@@ -7,6 +7,7 @@ export type ItemMap<T> = {
     [id: string]: T;
 };
 
+// todo write test
 export const handleSelectItem = (
     item: Item,
     itemList: Item[],
