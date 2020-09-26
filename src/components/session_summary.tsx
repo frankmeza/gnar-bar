@@ -10,12 +10,20 @@ export interface SessionSummaryProps {
 }
 
 const SessionSummary = (props: SessionSummaryProps) => {
+    const { beerList, snackList, wineList } = props;
+
     const totals = getAllTabAmounts(props);
+
+    const beerNames = Object.values(beerList).map(beer => beer.name);
+    const wineNames = Object.values(wineList).map(wine => wine.name);
+    const snackNames = Object.values(snackList).map(snack => snack.name);
 
     return (
         <Fragment>
-            <pre>{JSON.stringify(totals, null, 4)}</pre>
-            <pre>{JSON.stringify(props, null, 4)}</pre>
+            <pre>{JSON.stringify(totals)}</pre>
+            <pre>beer: {JSON.stringify(beerNames, null, 4)}</pre>
+            <pre>wine: {JSON.stringify(wineNames, null, 4)}</pre>
+            <pre>snack: {JSON.stringify(snackNames, null, 4)}</pre>
         </Fragment>
     );
 };

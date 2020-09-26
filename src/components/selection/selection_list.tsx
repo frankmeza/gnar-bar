@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Beer, Item, ItemType } from "../../types";
+import { Item, ItemType } from "../../types";
 
 type Handler = ((i: Item) => void);
 
