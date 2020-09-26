@@ -10,6 +10,7 @@ export interface Kitchen extends Producer {}
 
 export interface Item {
     readonly cost: number;
+    readonly id: string;
     readonly name: string;
 }
 
@@ -19,10 +20,11 @@ export interface Drink extends Item {
     readonly source: Brewery | Winery;
 }
 
-export enum DrinkType {
+export enum ItemType {
     BEER = "beer",
     WINE = "wine",
     COCKTAIL = "cocktail",
+    BAR_SNACK = "bar_snack",
     UNKNOWN = "unknown",
 }
 
