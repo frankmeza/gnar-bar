@@ -1,4 +1,4 @@
-import { Beer, BeerColor } from "./src/core";
+import { Beer, BeerColor } from "./src/types";
 
 export const beerList: ReadonlyArray<Beer> = [
     {

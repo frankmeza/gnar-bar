@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
+// data-related
 import { beerList } from "../beer_data";
 
+// components
+import SessionSummary from "./components/session_summary";
 import "./app.scss";
 
 const App = () => {
-    const beers = JSON.stringify(beerList, null, 4);
+    const [beersSelected, setBeersSelected] = useState()
 
-    return <pre>{beers}</pre>;
+
+    return (
+        <SessionSummary beers={beerList} />
+        //
+        );
 };
 
 export default App;
