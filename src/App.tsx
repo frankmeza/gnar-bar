@@ -6,7 +6,7 @@ import { Beer, ItemType, Item, Snack, Wine } from "./types";
 
 // components
 import SessionSummary from "./components/session_summary";
-import SelectionList from "./components/drinks/item_selection";
+import SelectionList from "./components/selection/selection_list";
 
 // utils
 import { createItemMap, handleSelectItem } from "./app_utils";
@@ -38,7 +38,7 @@ const App = () => {
     };
 
     const handleSelectWine = (wine: Item) => {
-        handleSelectItem(wine, winesSelected, setWinesSelected);
+        handleSelectItem(wine, snacksSelected, setWinesSelected);
     };
 
     return (
