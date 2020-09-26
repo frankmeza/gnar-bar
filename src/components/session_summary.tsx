@@ -1,15 +1,20 @@
-import React from "react";
-import { Beer } from "../types";
+import React, { Fragment } from "react";
+
+import { ItemMap } from "../app_utils";
+import { Item } from "../types";
 
 interface SessionSummaryProps {
-    readonly beers: Beer[];
+    readonly beerList: ItemMap<Item>;
+    readonly wineList: ItemMap<Item>;
+    readonly items?: ItemMap<Item>;
 }
 
 const SessionSummary = (props: SessionSummaryProps) => {
-    const { beers: b } = props;
-    const beers = JSON.stringify(b, null, 4);
-
-    return <pre>{beers}</pre>;
+    return (
+        <Fragment>
+            <pre>{JSON.stringify(props, null, 4)}</pre>
+        </Fragment>
+    );
 };
 
 export default SessionSummary;
