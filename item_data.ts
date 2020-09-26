@@ -1,4 +1,11 @@
-import { Beer, BeerColor, Wine, WineColor, WineFinish } from "./src/types";
+import {
+    Beer,
+    BeerColor,
+    Snack,
+    Wine,
+    WineColor,
+    WineFinish,
+} from "./src/types";
 
 export const beerList: Beer[] = [
     {
@@ -42,7 +49,6 @@ export const beerList: Beer[] = [
     },
 ];
 
-
 export const wineList: Wine[] = [
     {
         abv: 6,
@@ -85,5 +91,15 @@ export const wineList: Wine[] = [
             city: "Long Beach",
             state: "California",
         },
+    },
+];
+
+export const snackList: Snack[] = [
+    {
+        cost: 10,
+        id: "snackem",
+        name: "snackem",
+        isDairy: false,
+        isVegetarian: false,
     },
 ];

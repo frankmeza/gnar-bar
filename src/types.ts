@@ -22,10 +22,10 @@ export interface Drink extends Item {
 
 export enum ItemType {
     BEER = "beer",
-    WINE = "wine",
     COCKTAIL = "cocktail",
-    BAR_SNACK = "bar_snack",
+    SNACK = "snack",
     UNKNOWN = "unknown",
+    WINE = "wine",
 }
 
 export enum BeerColor {
@@ -40,8 +40,8 @@ export interface Beer extends Drink {
 }
 
 export enum WineFinish {
-    SWEET = "sweet",
     DRY = "dry",
+    SWEET = "sweet",
     UNKNOWN = "unknown",
 }
 
@@ -56,7 +56,7 @@ export interface Wine extends Drink {
     readonly finish: WineFinish;
 }
 
-export interface BarSnack extends Item {
+export interface Snack extends Item {
     readonly isDairy: boolean;
     readonly isVegetarian: boolean;
 }

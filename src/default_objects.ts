@@ -1,5 +1,5 @@
 import {
-    BarSnack,
+    Snack,
     Beer,
     BeerColor,
     Brewery,
@@ -54,7 +54,7 @@ export const defaultWine: Wine = {
     type: "",
 };
 
-export const defaultBarSnack: BarSnack = {
+export const defaultSnack: Snack = {
     cost: 0,
     id: "",
     isDairy: false,

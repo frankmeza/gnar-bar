@@ -6,7 +6,7 @@ import { Item } from "../types";
 interface SessionSummaryProps {
     readonly beerList: ItemMap<Item>;
     readonly wineList: ItemMap<Item>;
-    readonly items?: ItemMap<Item>;
+    readonly snackList: ItemMap<Item>;
 }
 
 const SessionSummary = (props: SessionSummaryProps) => {
