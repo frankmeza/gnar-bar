@@ -13,10 +13,17 @@ export interface Item {
     readonly name: string;
 }
 
-export interface Libation extends Item {
+export interface Drink extends Item {
     readonly abv: number;
     readonly type: string;
     readonly source: Brewery | Winery;
+}
+
+export enum DrinkType {
+    BEER = "beer",
+    WINE = "wine",
+    COCKTAIL = "cocktail",
+    UNKNOWN = "unknown",
 }
 
 export enum BeerColor {
@@ -26,7 +33,7 @@ export enum BeerColor {
     UNKNOWN = "unknown",
 }
 
-export interface Beer extends Libation {
+export interface Beer extends Drink {
     readonly color: BeerColor;
 }
 
@@ -42,7 +49,7 @@ export enum WineColor {
     UNKNOWN = "unknown",
 }
 
-export interface Wine extends Libation {
+export interface Wine extends Drink {
     readonly color: WineColor;
     readonly finish: WineFinish;
 }
