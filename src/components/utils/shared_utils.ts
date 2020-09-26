@@ -34,9 +34,8 @@ export const getAllTabAmounts = (props: SummaryProps): TabTotals => {
     };
 };
 
-export const generateSummaryItemList = (
-    item: Item,
-): SummaryItemProps => {
-    const { cost, name } = item;
-    return { cost, name };
+export const generateSummaryItem = (item: Item): SummaryItemProps => {
+    const { cost, id, name } = item;
+
+    return { cost, id, name };
 };

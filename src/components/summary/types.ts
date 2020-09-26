@@ -16,5 +16,6 @@ export interface SummaryProps {
 
 export interface SummaryItemProps {
     readonly cost: number;
+    readonly id: string;
     readonly name: string;
 }
