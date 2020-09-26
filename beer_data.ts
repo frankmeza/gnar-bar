@@ -1,6 +1,6 @@
 import { Beer, BeerColor } from "./src/types";
 
-export const beerList: ReadonlyArray<Beer> = [
+export const beerList: Beer[] = [
     {
         cost: 6,
         name: "Tuan Porter",
