@@ -1,13 +1,5 @@
 import { Item, ItemMap, ItemType } from "../../types";
 
-export type Handler = ((i: Item) => void);
-
-export interface SelectionListProps {
-    readonly handlerFn: Handler;
-    readonly itemType: ItemType;
-    readonly itemList: Item[];
-}
-
 export interface SummaryProps {
     readonly beerList: ItemMap<Item>;
     readonly snackList: ItemMap<Item>;
