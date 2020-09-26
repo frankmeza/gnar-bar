@@ -19,3 +19,8 @@ export interface SummaryItemProps {
     readonly id: string;
     readonly name: string;
 }
+
+export interface SummaryItemsProps {
+    readonly itemType: ItemType;
+    readonly items: ItemMap<Item>;
+}
