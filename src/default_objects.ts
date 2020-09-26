@@ -29,6 +29,7 @@ export const defaultBeer: Beer = {
     abv: 0,
     color: BeerColor.UNKNOWN,
     cost: 0,
+    id: "",
     name: "",
     source: {
         name: "",
@@ -42,6 +43,7 @@ export const defaultWine: Wine = {
     abv: 0,
     color: WineColor.UNKNOWN,
     cost: 0,
+    id: "",
     finish: WineFinish.UNKNOWN,
     name: "",
     source: {
@@ -54,6 +56,7 @@ export const defaultWine: Wine = {
 
 export const defaultBarSnack: BarSnack = {
     cost: 0,
+    id: "",
     isDairy: false,
     isVegetarian: false,
     name: "",
