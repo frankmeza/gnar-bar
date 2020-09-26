@@ -1,17 +1,20 @@
 import React, { Fragment } from "react";
 
-import { ItemMap } from "../app_utils";
-import { Item } from "../types";
+import { getAllTabAmounts } from "./utils/shared_utils";
+import { Item, ItemMap } from "../types";
 
-interface SessionSummaryProps {
+export interface SessionSummaryProps {
     readonly beerList: ItemMap<Item>;
-    readonly wineList: ItemMap<Item>;
     readonly snackList: ItemMap<Item>;
+    readonly wineList: ItemMap<Item>;
 }
 
 const SessionSummary = (props: SessionSummaryProps) => {
+    const totals = getAllTabAmounts(props);
+
     return (
         <Fragment>
+            <pre>{JSON.stringify(totals, null, 4)}</pre>
             <pre>{JSON.stringify(props, null, 4)}</pre>
         </Fragment>
     );

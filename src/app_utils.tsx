@@ -1,13 +1,10 @@
-import { Item } from "./types";
+import { Item, ItemMap } from "./types";
 
 const BEGINNING = 0;
 const END = -1;
 
-export type ItemMap<T> = {
-    [id: string]: T;
-};
+// todo write tests
 
-// todo write test
 export const handleSelectItem = (
     item: Item,
     itemList: Item[],
@@ -20,7 +17,7 @@ export const handleSelectItem = (
     if (isItemSelected) {
         callbackFn([
             ...itemList.slice(BEGINNING, indexOfItem),
-            ...itemList.slice(indexOfItem, END)
+            ...itemList.slice(indexOfItem, END),
         ]);
     } else {
         callbackFn([item, ...itemList]);

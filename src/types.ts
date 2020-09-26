@@ -14,6 +14,10 @@ export interface Item {
     readonly name: string;
 }
 
+export type ItemMap<T> = {
+    [id: string]: T;
+};
+
 export interface Drink extends Item {
     readonly abv: number;
     readonly type: string;
