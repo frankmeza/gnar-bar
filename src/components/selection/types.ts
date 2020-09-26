@@ -1,9 +1,9 @@
-import { Item, ItemType } from "../../types";
+import { Item, ItemType } from "../../common_types";
 
-export type Handler = ((i: Item) => void);
+export type ItemHandler = ((i: Item) => void);
 
 export interface SelectionListProps {
-    readonly handlerFn: Handler;
+    readonly handlerFn: ItemHandler;
     readonly itemType: ItemType;
     readonly itemList: Item[];
 }
@@ -11,5 +11,5 @@ export interface SelectionListProps {
 export interface SelectionItemProps {
     readonly item: Item;
     readonly itemType: ItemType;
-    readonly handler: Handler;
+    readonly handler: ItemHandler;
 }

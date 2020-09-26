@@ -13,10 +13,10 @@ const SelectionList = (props: SelectionListProps) => {
         <Fragment>
             {itemList.map(item => (
                 <SelectionItem
-                    key={item.id}
                     handler={handlerFn}
                     item={item}
                     itemType={itemType}
+                    key={item.id}
                 />
             ))}
         </Fragment>

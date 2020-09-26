@@ -1,5 +1,4 @@
 import React from "react";
-import { Item, ItemType } from "../../types";
 import { SelectionItemProps } from "./types";
 
 const SelectionItem = (props: SelectionItemProps) => {

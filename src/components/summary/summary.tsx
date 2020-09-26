@@ -5,13 +5,14 @@ import SummaryItems from "./summary_items";
 
 // data-related
 import { SummaryProps } from "./types";
-import { ItemType } from "../../types";
+import { ItemType } from "../../common_types";
 
 // utils
 import { getAllTabAmounts } from "../utils/shared_utils";
 
 const Summary = (props: SummaryProps) => {
     const { beerList, snackList, wineList } = props;
+
     const totals = getAllTabAmounts(props);
 
     return (

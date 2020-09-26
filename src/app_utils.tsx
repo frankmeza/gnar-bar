@@ -1,4 +1,4 @@
-import { Item, ItemMap } from "./types";
+import { Item, ItemMap } from "./common_types";
 
 const BEGINNING = 0;
 const END = -1;

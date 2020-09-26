@@ -6,7 +6,7 @@ import SelectionList from "./components/selection/selection_list";
 
 // data-related
 import { beerList, snackList, wineList } from "../item_data";
-import { Beer, ItemType, Item, Snack, Wine } from "./types";
+import { Beer, ItemType, Item, Snack, Wine } from "./common_types";
 
 // utils
 import { createItemMap, handleSelectItem } from "./app_utils";
