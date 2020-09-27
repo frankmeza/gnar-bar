@@ -3,12 +3,18 @@ import { SelectionItemProps } from "./types";
 
 const SelectionItem = (props: SelectionItemProps) => {
     const { item, itemType, handler } = props;
-    const { id, name } = item;
+    const { cost, id, name } = item;
 
     return (
-        <pre key={id} onClick={() => handler(item)}>
-            {itemType} {name}
-        </pre>
+        <div className={`selection-item-${itemType} item-id-${id}`}>
+            <p
+                className={`selection-item-text-${itemType}`}
+                key={id}
+                onClick={() => handler(item)}
+            >
+                {itemType} {name} - ${cost}
+            </p>
+        </div>
     );
 };
 

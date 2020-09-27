@@ -24,16 +24,12 @@ export const handleSelectItem = (
     }
 };
 
+// eslint-ignore
 export const createItemMap = (items: Item[]): ItemMap<Item> => {
-    const itemMap = items.reduce(
-        (acc, item) => {
-            return {
-                ...acc,
-                [item.id]: item,
-            };
-        },
-        {} as ItemMap<Item>,
-    );
-
-    return itemMap;
+    return items.reduce((acc, item) => {
+        return {
+            ...acc,
+            [item.id]: item,
+        };
+    }, {} as ItemMap<Item>);
 };

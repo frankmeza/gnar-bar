@@ -13,6 +13,10 @@ import reactDom from "react-dom";
 
 const isProd = process.env.NODE_ENV === "production";
 
+const ENVIRONMENT_NAME =
+    isProd ? "production" :
+    "development";
+
 const extensions = [".js", ".ts", ".tsx"];
 
 export default {
@@ -23,9 +27,7 @@ export default {
     },
     plugins: [
         replace({
-            "process.env.NODE_ENV": JSON.stringify(
-                isProd ? "production" : "development",
-            ),
+            "process.env.NODE_ENV": JSON.stringify(ENVIRONMENT_NAME),
         }),
         resolve({
             extensions,

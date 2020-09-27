@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
-
 // components
 import SelectionItem from "./selection_item";
-
 // data-related
 import { SelectionListProps } from "../selection/types";
 
