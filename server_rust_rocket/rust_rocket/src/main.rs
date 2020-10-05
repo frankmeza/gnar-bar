@@ -3,53 +3,38 @@
 
 #[macro_use]
 extern crate rocket;
+
 #[macro_use]
 extern crate rocket_contrib;
+use rocket_contrib::json::Json;
+
 extern crate serde;
-#[macro_use]
 extern crate serde_derive;
 extern crate serde_json;
 
-use rocket::http::{ContentType, Status};
-use rocket::request::Request;
-use rocket::response;
-use rocket::response::{Responder, Response};
-use rocket_contrib::json::{JsonValue};
+mod handlers;
+use handlers::user as user_handlers;
 
-#[derive(Debug, Deserialize, Serialize)]
-struct User {
-    pub name: String,
-    pub age: i32,
-}
+mod user;
+use user::User;
 
-#[derive(Debug)]
-struct ApiResponse {
-    json: JsonValue,
-    status: Status,
-}
-
-impl<'r> Responder<'r> for ApiResponse {
-    fn respond_to(self, req: &Request) -> response::Result<'r> {
-        return Response::build_from(self.json.respond_to(&req).unwrap())
-            .status(self.status)
-            .header(ContentType::JSON)
-            .ok();
-    }
+#[get("/health")]
+fn health() -> handlers::ApiResponse {
+    return handlers::get_health();
 }
 
 #[get("/")]
-fn index() -> ApiResponse {
-    let user = User {
-        name: String::from("frank "),
-        age: 37,
-    };
+fn index() -> handlers::ApiResponse {
+    return handlers::get_index();
+}
 
-    return ApiResponse {
-        json: json!(user),
-        status: Status::Ok,
-    };
+#[post("/users", format = "json", data = "<user_params>")]
+fn new_user(user_params: Json<User>) -> handlers::ApiResponse {
+    return user_handlers::create_new_user(user_params);
 }
 
 fn main() {
-    rocket::ignite().mount("/", routes![index]).launch();
+    rocket::ignite()
+        .mount("/", routes![health, index, new_user,])
+        .launch();
 }
