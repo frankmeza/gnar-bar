@@ -24,6 +24,7 @@ export const getAllTabAmounts = (props: SummaryProps): TabTotals => {
     const beerTab = getTabAmount(beerList);
     const snackTab = getTabAmount(snackList);
     const wineTab = getTabAmount(wineList);
+
     const total = beerTab + snackTab + wineTab;
 
     return {

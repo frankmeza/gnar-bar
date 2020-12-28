@@ -88,9 +88,7 @@ export default {
         html({
             fileName: "index.html",
             title: "ReactTS Starter",
-            template: ({ title }) => {
-                return htmlTemplate(title);
-            },
+            template: ({ title }) => htmlTemplate(title),
         }),
         scss({
             output: "public/index.css",
