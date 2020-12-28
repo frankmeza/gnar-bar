@@ -1,7 +1,5 @@
 import React from "react";
-// components
 import SelectionItem from "./selection_item";
-// data-related
 import { SelectionListProps } from "../selection/types";
 import "./selection.scss";
 
@@ -19,9 +17,7 @@ const SelectionList = (props: SelectionListProps) => {
 
     return (
         <div className={`selection-list-${itemType}`}>
-            <span className="selection-item-type">
-                {itemTypeTitle}
-            </span>
+            <span className="selection-item-type">{itemTypeTitle}</span>
 
             <div>
                 {itemList.map(item => (

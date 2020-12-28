@@ -1,9 +1,6 @@
 import React, { Fragment } from "react";
-// components
 import SummaryItem from "./summary_item";
-// data-related
 import { SummaryItemsProps } from "./types";
-// utils
 import { generateSummaryItem } from "../utils/shared_utils";
 
 const SummaryItems = (props: SummaryItemsProps) => {
