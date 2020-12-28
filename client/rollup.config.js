@@ -19,6 +19,21 @@ const ENVIRONMENT_NAME =
 
 const extensions = [".js", ".ts", ".tsx"];
 
+const htmlTemplate = title => `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${title}</title>
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script src="/index.js"></script>
+</body>
+</html>
+`;
+
 export default {
     input: "src/index.tsx",
     output: {
@@ -74,20 +89,7 @@ export default {
             fileName: "index.html",
             title: "ReactTS Starter",
             template: ({ title }) => {
-                return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>${title}</title>
-  <link rel="stylesheet" href="/index.css">
-</head>
-<body>
-  <div id="app"></div>
-  <script src="/index.js"></script>
-</body>
-</html>
-`;
+                return htmlTemplate(title);
             },
         }),
         scss({
