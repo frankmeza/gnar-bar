@@ -1,13 +1,9 @@
 import React, { useEffect, useState, Fragment } from "react";
-
 import SessionSummary from "./components/summary/summary";
 import SelectionList from "./components/selection/selection_list";
-
 import { beerList, snackList, wineList } from "../item_data";
 import { Beer, ItemType, Item, Snack, Wine } from "./common_types";
-
 import { createItemMap, handleSelectItem } from "./app_utils";
-
 import "./app.scss";
 
 const App = () => {
@@ -26,15 +22,16 @@ const App = () => {
         setAvailableSnacks(snackList);
     }, []);
 
-    const handleSelectBeer = (beer: Item) => {
-        handleSelectItem(beer, beersSelected, setBeersSelected);
+    const handleSelectBeer = async (beer: Item) => {
+        const resp = await handleSelectItem(beer, beersSelected, setBeersSelected);
+        debugger
     };
 
-    const handleSelectSnack = (snack: Item) => {
+    const handleSelectSnack = (snack: Item): void => {
         handleSelectItem(snack, snacksSelected, setSnacksSelected);
     };
 
-    const handleSelectWine = (wine: Item) => {
+    const handleSelectWine = (wine: Item): void => {
         handleSelectItem(wine, winesSelected, setWinesSelected);
     };
 
