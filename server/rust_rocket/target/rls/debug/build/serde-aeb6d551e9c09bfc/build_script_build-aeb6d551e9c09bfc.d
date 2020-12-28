@@ -1,5 +1,0 @@
-/Users/macmini/Documents/projects/gnar-bar/server_rust_rocket/rust_rocket/target/rls/debug/build/serde-aeb6d551e9c09bfc/build_script_build-aeb6d551e9c09bfc: /Users/macmini/.cargo/registry/src/github.com-1ecc6299db9ec823/serde-1.0.116/build.rs
-
-/Users/macmini/Documents/projects/gnar-bar/server_rust_rocket/rust_rocket/target/rls/debug/build/serde-aeb6d551e9c09bfc/build_script_build-aeb6d551e9c09bfc.d: /Users/macmini/.cargo/registry/src/github.com-1ecc6299db9ec823/serde-1.0.116/build.rs
-
-/Users/macmini/.cargo/registry/src/github.com-1ecc6299db9ec823/serde-1.0.116/build.rs:

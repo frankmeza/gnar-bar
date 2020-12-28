@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/macmini/Documents/projects/gnar-bar/server_rust_rocket/rust_rocket/target/rls/debug/build/typenum-080bcb860ceb50f3/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/Users/macmini/Documents/projects/gnar-bar/server_rust_rocket/rust_rocket/target/rls/debug/build/typenum-080bcb860ceb50f3/out/op.rs
