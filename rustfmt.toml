@@ -1,0 +1,8 @@
+fn_args_layout = "Tall"
+max_width = 80
+merge_imports = true
+overflow_delimited_expr = true
+reorder_impl_items = true
+struct_lit_single_line = false
+use_field_init_shorthand = true
+wrap_comments = true

@@ -1,3 +1,4 @@
+import * as React from "react";
 import { submitOrder } from "./api";
 import { Beer, Item, ItemMap, Snack, Wine } from "./common_types";
 
