@@ -701,6 +701,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f6503fe142514ca4799d4c26297c4248239fe8838d827db6bd6065c6ed29a6ce"
 
 [[package]]
+name = "gnar_bar"
+version = "0.1.0"
+dependencies = [
+ "actix-cors",
+ "actix-web",
+]
+
+[[package]]
 name = "h2"
 version = "0.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1209,14 +1217,6 @@ checksum = "52e44394d2086d010551b14b53b1f24e31647570cd1deb0379e2c21b329aba00"
 dependencies = [
  "hostname",
  "quick-error",
-]
-
-[[package]]
-name = "rust_actix"
-version = "0.1.0"
-dependencies = [
- "actix-cors",
- "actix-web",
 ]
 
 [[package]]

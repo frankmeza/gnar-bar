@@ -1,16 +1,16 @@
-[tasks.start-client]
+[tasks.client-dev]
 script = [
     "cd client/",
-    "npm start"
+    "npm run dev"
 ]
 
-[tasks.install-client]
+[tasks.client-install]
 script = [
     "cd client/",
     "npm install"
 ]
 
-[tasks.start-server]
+[tasks.server]
 script = [
     "cargo build",
     "cargo run"
