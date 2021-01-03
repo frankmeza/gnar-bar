@@ -1,9 +1,8 @@
 import React from "react";
-import { Item } from "../../core_types";
 // components
 import { SelectionItemProps } from "./types";
 
-const SelectionItem = <T extends Item>(props: SelectionItemProps<T>) => {
+const SelectionItem = (props: SelectionItemProps) => {
     const { item, itemType, handler } = props;
     const { cost, id, name } = item;
 
