@@ -1,15 +1,19 @@
-import { Item, ItemType } from "../../common_types";
+import { Item, ItemType } from "../../core_types";
 
-export type ItemHandler = ((i: Item) => void);
+export type ItemHandler<T extends Item> = (beer: T) => void
 
-export interface SelectionListProps {
-    readonly handlerFn: ItemHandler;
+export interface SelectionListProps<T extends Item> {
+    readonly handlerFn: ItemHandler<T>;
     readonly itemType: ItemType;
     readonly itemList: Item[];
 }
 
-export interface SelectionItemProps {
-    readonly item: Item;
+interface SelectionItem extends Item {
+    color?: any
+}
+
+export interface SelectionItemProps<T extends Item> {
+    readonly item: SelectionItem;
     readonly itemType: ItemType;
-    readonly handler: ItemHandler;
+    readonly handler: ItemHandler<T>;
 }

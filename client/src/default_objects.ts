@@ -9,7 +9,7 @@ import {
     Wine,
     WineColor,
     WineFinish,
-} from "./common_types";
+} from "./core_types";
 
 export const defaultProducer: Producer = {
     city: "",

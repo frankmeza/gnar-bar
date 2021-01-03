@@ -1,7 +1,17 @@
-import { Item } from "../common_types";
+import { Beer, Snack, Wine } from "../core_types";
+import { postFetch } from "./utils";
 
-export const submitOrder = async (items: Item[]) => {
-    const response = await Promise.resolve(JSON.stringify({ hellaLit: true }));
+type OrderParams = {
+    beersSelected: Beer[];
+    snacksSelected: Snack[];
+    winesSelected: Wine[];
+};
 
-    return response;
-}
+const SUBMIT_ORDER_URL = "http://localhost:8080/submit_order";
+
+export const submitOrder = async (order: OrderParams) => {
+    const response = await postFetch(SUBMIT_ORDER_URL, order);
+
+    const result = response.ok ? order : { error: true };
+    return JSON.stringify(result);
+};

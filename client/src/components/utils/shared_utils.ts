@@ -1,4 +1,4 @@
-import { Item, ItemMap } from "../../common_types";
+import { Item, ItemMap } from "../../core_types";
 import { SummaryItemProps, SummaryProps } from "../summary/types";
 
 interface TabTotals {

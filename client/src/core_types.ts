@@ -18,12 +18,6 @@ export type ItemMap<T> = {
     [id: string]: T;
 };
 
-export interface Drink extends Item {
-    readonly abv: number;
-    readonly type: string;
-    readonly source: Brewery | Winery;
-}
-
 export enum ItemType {
     BEER = "beer",
     COCKTAIL = "cocktail",
@@ -39,10 +33,6 @@ export enum BeerColor {
     UNKNOWN = "unknown",
 }
 
-export interface Beer extends Drink {
-    readonly color: BeerColor;
-}
-
 export enum WineFinish {
     DRY = "dry",
     SWEET = "sweet",
@@ -55,8 +45,16 @@ export enum WineColor {
     UNKNOWN = "unknown",
 }
 
+export interface Drink extends Item {
+    readonly abv: number;
+    readonly type: string;
+    readonly source: Brewery | Winery;
+    readonly color: BeerColor | WineColor;
+}
+
+export interface Beer extends Drink {}
+
 export interface Wine extends Drink {
-    readonly color: WineColor;
     readonly finish: WineFinish;
 }
 

@@ -1,10 +1,17 @@
 import React, { useEffect, useState, Fragment } from "react";
+// components
 import SessionSummary from "./components/summary/summary";
 import SelectionList from "./components/selection/selection_list";
+// data
 import { beerList, snackList, wineList } from "../item_data";
-import { Beer, ItemType, Item, Snack, Wine } from "./common_types";
+import { Beer, ItemType, Snack, Wine } from "./core_types";
 import { createItemMap, handleSelectItem } from "./app_utils";
+// api
+import { submitOrder } from "./api";
+// styling
 import "./app.scss";
+
+const BUTTON_TEXT = "submit order";
 
 const App = () => {
     const [availableBeers, setAvailableBeers] = useState([] as Beer[]);
@@ -15,24 +22,35 @@ const App = () => {
     const [snacksSelected, setSnacksSelected] = useState([] as Snack[]);
     const [winesSelected, setWinesSelected] = useState([] as Wine[]);
 
-    // initial data loading
     useEffect(() => {
         setAvailableBeers(beerList);
         setAvailableWines(wineList);
         setAvailableSnacks(snackList);
     }, []);
 
-    const handleSelectBeer = async (beer: Item) => {
-        const resp = await handleSelectItem(beer, beersSelected, setBeersSelected);
-        debugger
+    const handleSelectBeer = (beer: Beer) => {
+        const beers = handleSelectItem(beer, beersSelected);
+        setBeersSelected(beers);
     };
 
-    const handleSelectSnack = (snack: Item): void => {
-        handleSelectItem(snack, snacksSelected, setSnacksSelected);
+    const handleSelectSnack = (snack: Snack): void => {
+        const snacks = handleSelectItem(snack, snacksSelected);
+        setSnacksSelected(snacks);
     };
 
-    const handleSelectWine = (wine: Item): void => {
-        handleSelectItem(wine, winesSelected, setWinesSelected);
+    const handleSelectWine = (wine: Wine): void => {
+        const wines = handleSelectItem(wine, winesSelected);
+        setWinesSelected(wines);
+    };
+
+    const onClickSubmit = async () => {
+        const result = await submitOrder({
+            beersSelected,
+            snacksSelected,
+            winesSelected,
+        });
+
+        confirm(result);
     };
 
     return (
@@ -57,6 +75,7 @@ const App = () => {
                 wineList={createItemMap(winesSelected)}
                 snackList={createItemMap(snacksSelected)}
             />
+            <button onClick={onClickSubmit}>{BUTTON_TEXT}</button>
         </Fragment>
     );
 };

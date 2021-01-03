@@ -1,4 +1,4 @@
-import { Item, ItemMap, ItemType } from "../../common_types";
+import { Item, ItemMap, ItemType } from "../../core_types";
 
 export interface SummaryProps {
     readonly beerList: ItemMap<Item>;

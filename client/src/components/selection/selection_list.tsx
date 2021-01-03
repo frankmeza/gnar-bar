@@ -1,6 +1,8 @@
 import React from "react";
+// components
 import SelectionItem from "./selection_item";
 import { SelectionListProps } from "../selection/types";
+// styling
 import "./selection.scss";
 
 const ZERO = 0;
@@ -13,7 +15,7 @@ const SelectionList = (props: SelectionListProps) => {
         return <div className="empty-selection-list">HAS NONE</div>;
     }
 
-    const itemTypeTitle = `${itemType.toUpperCase()} LIST (scrollable)`;
+    const itemTypeTitle = `${itemType.toUpperCase()} LIST`;
 
     return (
         <div className={`selection-list-${itemType}`}>

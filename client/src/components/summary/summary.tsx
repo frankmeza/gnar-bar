@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
+// components
 import SummaryItems from "./summary_items";
+// data
 import { SummaryProps } from "./types";
-import { ItemType } from "../../common_types";
+import { ItemType } from "../../core_types";
 import { getAllTabAmounts } from "../utils/shared_utils";
 
 const Summary = (props: SummaryProps) => {

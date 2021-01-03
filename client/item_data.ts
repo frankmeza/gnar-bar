@@ -5,7 +5,7 @@ import {
     Wine,
     WineColor,
     WineFinish,
-} from "./src/common_types";
+} from "./src/core_types";
 
 export const beerList: Beer[] = [
     {
