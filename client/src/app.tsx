@@ -24,7 +24,6 @@ const App = () => {
 
     const handleSelectBeer = async (beer: Item) => {
         const resp = await handleSelectItem(beer, beersSelected, setBeersSelected);
-        debugger
     };
 
     const handleSelectSnack = (snack: Item): void => {
@@ -37,21 +36,24 @@ const App = () => {
 
     return (
         <Fragment>
-            <SelectionList
-                itemType={ItemType.BEER}
-                itemList={availableBeers}
-                handlerFn={handleSelectBeer}
-            />
-            <SelectionList
-                itemType={ItemType.WINE}
-                itemList={availableWines}
-                handlerFn={handleSelectWine}
-            />
-            <SelectionList
-                itemType={ItemType.SNACK}
-                itemList={availableSnacks}
-                handlerFn={handleSelectSnack}
-            />
+            <h1 style={{ textAlign: "center" }}>Da Gnar Bar 🤙🏽</h1>
+            <div className="list-container">
+                <SelectionList
+                    itemType={ItemType.BEER}
+                    itemList={availableBeers}
+                    handlerFn={handleSelectBeer}
+                />
+                <SelectionList
+                    itemType={ItemType.WINE}
+                    itemList={availableWines}
+                    handlerFn={handleSelectWine}
+                />
+                <SelectionList
+                    itemType={ItemType.SNACK}
+                    itemList={availableSnacks}
+                    handlerFn={handleSelectSnack}
+                />
+            </div>
             <SessionSummary
                 beerList={createItemMap(beersSelected)}
                 wineList={createItemMap(winesSelected)}
