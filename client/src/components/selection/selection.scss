@@ -1,12 +1,38 @@
 .selection-list-beer {
-    border: 2px solid brown;
-    height: 150px;
-    padding: 5px;
-    overflow-y: scroll;
-    width: 300px;
+  border: 2px solid brown;
+  height: 150px;
+  padding: 5px;
+  overflow-y: scroll;
+  width: 300px;
 }
 
 .selection-item-beer {
-    background-color: beige;
-    height: 60px;
+  background-color: beige;
+  height: 60px;
+}
+
+.selection-list-wine {
+  border: 2px solid brown;
+  height: 150px;
+  padding: 5px;
+  overflow-y: scroll;
+  width: 300px;
+}
+
+.selection-item-wine {
+  background-color: beige;
+  height: 60px;
+}
+
+.selection-list-snack {
+  border: 2px solid brown;
+  height: 150px;
+  padding: 5px;
+  overflow-y: scroll;
+  width: 300px;
+}
+
+.selection-item-snack {
+  background-color: beige;
+  height: 60px;
 }
