@@ -1,3 +1,18 @@
 p {
   color: blue;
 }
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 980;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
