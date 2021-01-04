@@ -7,8 +7,13 @@
 }
 
 .selection-item-beer {
-  background-color: beige;
-  height: 60px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding-left: 5px;
+  margin-top: 10px;
+  height: 50px;
 }
 
 .selection-list-wine {
@@ -20,8 +25,13 @@
 }
 
 .selection-item-wine {
-  background-color: beige;
-  height: 60px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding-left: 5px;
+  margin-top: 10px;
+  height: 50px;
 }
 
 .selection-list-snack {
@@ -33,6 +43,11 @@
 }
 
 .selection-item-snack {
-  background-color: beige;
-  height: 60px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding-left: 5px;
+  margin-top: 10px;
+  height: 50px;
 }
