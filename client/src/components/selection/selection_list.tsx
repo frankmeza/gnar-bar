@@ -16,7 +16,7 @@ const SelectionList = (props: SelectionListProps) => {
     const itemTypeTitle = `${itemType.toUpperCase()} LIST`;
 
     return (
-        <div>
+        <div className="selection-menu-area">
             <span className="selection-item-type">{itemTypeTitle}</span>
             <div className={`selection-list-${itemType}`}>
 
