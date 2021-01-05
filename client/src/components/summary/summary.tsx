@@ -18,7 +18,7 @@ const Summary = (props: SummaryProps) => {
             <SummaryItems itemType={ItemType.SNACK} items={snackList} />
 
             <p className="summary-header">TOTALS</p>
-            <pre>{JSON.stringify(totals)}</pre>
+            <pre className="totals-display">{JSON.stringify(totals)}</pre>
         </Fragment>
     );
 };
