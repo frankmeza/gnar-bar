@@ -54,11 +54,13 @@ const App = () => {
                     handlerFn={handleSelectSnack}
                 />
             </div>
-            <SessionSummary
-                beerList={createItemMap(beersSelected)}
-                wineList={createItemMap(winesSelected)}
-                snackList={createItemMap(snacksSelected)}
-            />
+            <div className="summary-container">
+                <SessionSummary
+                    beerList={createItemMap(beersSelected)}
+                    wineList={createItemMap(winesSelected)}
+                    snackList={createItemMap(snacksSelected)}
+                />
+            </div>
         </div>
     );
 };
