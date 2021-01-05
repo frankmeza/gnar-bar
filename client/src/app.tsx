@@ -36,7 +36,7 @@ const App = () => {
 
     return (
         <div className="main-container">
-            <h1 style={{ textAlign: "center", color: "#feffff", paddingTop: "50px" }}>Da Gnar Bar 🤙🏽</h1>
+            <h1 className="header">The Gnar Bar</h1>
             <div className="list-container">
                 <SelectionList
                     itemType={ItemType.BEER}
