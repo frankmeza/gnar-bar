@@ -1,5 +1,6 @@
 .selection-list-beer {
-  border: 5px solid rgba(7, 74, 138, 0.712);
+  border: 10px solid #17252a;
+  border-radius: 5px;
   height: 150px;
   padding: 15px;
   margin-top: 5px;
@@ -8,7 +9,8 @@
 }
 
 .selection-item-beer {
-  background-color: aliceblue;
+  background-color: #def2f1;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -18,7 +20,8 @@
 }
 
 .selection-list-wine {
-  border: 5px solid rgba(7, 74, 138, 0.712);
+  border: 10px solid #17252a;
+  border-radius: 5px;
   height: 150px;
   padding: 15px;
   margin-top: 5px;
@@ -27,7 +30,8 @@
 }
 
 .selection-item-wine {
-  background-color: aliceblue;
+  background-color: #def2f1;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -37,7 +41,8 @@
 }
 
 .selection-list-snack {
-  border: 5px solid rgba(7, 74, 138, 0.712);
+  border: 10px solid #17252a;
+  border-radius: 5px;
   height: 150px;
   padding: 15px;
   margin-top: 5px;
@@ -46,7 +51,8 @@
 }
 
 .selection-item-snack {
-  background-color: aliceblue;
+  background-color: #def2f1;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -56,18 +62,16 @@
 }
 
 .selection-item-type {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
-  font-family: fantasy;
-  background-color: aqua;
+  font-family: Impact, fantasy;
 }
 
 .selection-menu-area {
   text-align: center;
-  background-color: brown;
-  padding-bottom: 30px;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-left: 10px;
+  //   padding-bottom: 30px;
+  //   padding-top: 10px;
+  //   padding-right: 10px;
+  //   padding-left: 10px;
   margin-bottom: 10px;
 }
