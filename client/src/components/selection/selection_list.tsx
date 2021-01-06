@@ -18,18 +18,20 @@ const SelectionList = (props: SelectionListProps) => {
     const itemTypeTitle = `${itemType.toUpperCase()} LIST`;
 
     return (
-        <div className={`selection-list-${itemType}`}>
+        <div className="selection-menu-area">
             <span className="selection-item-type">{itemTypeTitle}</span>
+            <div className={`selection-list-${itemType}`}>
 
-            <div>
-                {itemList.map(item => (
-                    <SelectionItem
-                        handler={handlerFn}
-                        item={item}
-                        itemType={itemType}
-                        key={item.id}
-                    />
-                ))}
+                <div>
+                    {itemList.map(item => (
+                        <SelectionItem
+                            handler={handlerFn}
+                            item={item}
+                            itemType={itemType}
+                            key={item.id}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

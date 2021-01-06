@@ -54,29 +54,33 @@ const App = () => {
     };
 
     return (
-        <Fragment>
-            <SelectionList
-                itemType={ItemType.BEER}
-                itemList={availableBeers}
-                handlerFn={handleSelectBeer}
-            />
-            <SelectionList
-                itemType={ItemType.WINE}
-                itemList={availableWines}
-                handlerFn={handleSelectWine}
-            />
-            <SelectionList
-                itemType={ItemType.SNACK}
-                itemList={availableSnacks}
-                handlerFn={handleSelectSnack}
-            />
-            <SessionSummary
-                beerList={createItemMap(beersSelected)}
-                wineList={createItemMap(winesSelected)}
-                snackList={createItemMap(snacksSelected)}
-            />
-            <button onClick={onClickSubmit}>{BUTTON_TEXT}</button>
-        </Fragment>
+        <div className="main-container">
+            <h1 className="header">The Gnar Bar</h1>
+            <div className="list-container">
+                <SelectionList
+                    itemType={ItemType.BEER}
+                    itemList={availableBeers}
+                    handlerFn={handleSelectBeer}
+                />
+                <SelectionList
+                    itemType={ItemType.WINE}
+                    itemList={availableWines}
+                    handlerFn={handleSelectWine}
+                />
+                <SelectionList
+                    itemType={ItemType.SNACK}
+                    itemList={availableSnacks}
+                    handlerFn={handleSelectSnack}
+                />
+            </div>
+            <div className="summary-container">
+                <SessionSummary
+                    beerList={createItemMap(beersSelected)}
+                    wineList={createItemMap(winesSelected)}
+                    snackList={createItemMap(snacksSelected)}
+                />
+            </div>
+        </div>
     );
 };
 

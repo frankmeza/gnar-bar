@@ -1,3 +1,29 @@
 p {
-  color: blue;
+  color: #2b7a78;
+  font-weight: bold;
+}
+
+.main-container {
+  height: 900px;
+  background-color: #3aafa9;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.header {
+  text-align: center;
+  font-size: 50px;
+  color: #feffff;
+  padding-top: 50px;
+}
+
+.summary-container {
+  margin-left: 5%;
+  margin-right: 5%;
 }
