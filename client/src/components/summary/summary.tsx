@@ -3,6 +3,7 @@ import SummaryItems from "./summary_items";
 import { SummaryProps } from "./types";
 import { ItemType } from "../../common_types";
 import { getAllTabAmounts } from "../utils/shared_utils";
+import "./summary.scss"
 
 const Summary = (props: SummaryProps) => {
     const { beerList, snackList, wineList } = props;
@@ -11,13 +12,13 @@ const Summary = (props: SummaryProps) => {
 
     return (
         <Fragment>
-            <p>SELECTIONS</p>
+            <p className="summary-header">SELECTIONS</p>
             <SummaryItems itemType={ItemType.BEER} items={beerList} />
             <SummaryItems itemType={ItemType.WINE} items={wineList} />
             <SummaryItems itemType={ItemType.SNACK} items={snackList} />
 
-            <p>TOTALS</p>
-            <pre>{JSON.stringify(totals)}</pre>
+            <p className="summary-header">TOTALS</p>
+            <pre className="totals-display">{JSON.stringify(totals)}</pre>
         </Fragment>
     );
 };

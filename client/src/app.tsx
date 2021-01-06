@@ -24,7 +24,6 @@ const App = () => {
 
     const handleSelectBeer = async (beer: Item) => {
         const resp = await handleSelectItem(beer, beersSelected, setBeersSelected);
-        debugger
     };
 
     const handleSelectSnack = (snack: Item): void => {
@@ -36,28 +35,33 @@ const App = () => {
     };
 
     return (
-        <Fragment>
-            <SelectionList
-                itemType={ItemType.BEER}
-                itemList={availableBeers}
-                handlerFn={handleSelectBeer}
-            />
-            <SelectionList
-                itemType={ItemType.WINE}
-                itemList={availableWines}
-                handlerFn={handleSelectWine}
-            />
-            <SelectionList
-                itemType={ItemType.SNACK}
-                itemList={availableSnacks}
-                handlerFn={handleSelectSnack}
-            />
-            <SessionSummary
-                beerList={createItemMap(beersSelected)}
-                wineList={createItemMap(winesSelected)}
-                snackList={createItemMap(snacksSelected)}
-            />
-        </Fragment>
+        <div className="main-container">
+            <h1 className="header">The Gnar Bar</h1>
+            <div className="list-container">
+                <SelectionList
+                    itemType={ItemType.BEER}
+                    itemList={availableBeers}
+                    handlerFn={handleSelectBeer}
+                />
+                <SelectionList
+                    itemType={ItemType.WINE}
+                    itemList={availableWines}
+                    handlerFn={handleSelectWine}
+                />
+                <SelectionList
+                    itemType={ItemType.SNACK}
+                    itemList={availableSnacks}
+                    handlerFn={handleSelectSnack}
+                />
+            </div>
+            <div className="summary-container">
+                <SessionSummary
+                    beerList={createItemMap(beersSelected)}
+                    wineList={createItemMap(winesSelected)}
+                    snackList={createItemMap(snacksSelected)}
+                />
+            </div>
+        </div>
     );
 };
 
