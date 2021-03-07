@@ -8,3 +8,8 @@ pub use db::{
     ErrorResponse,
     ProducerDB,
 };
+
+mod transformers;
+pub use transformers::{
+    transform_producer,
+};
