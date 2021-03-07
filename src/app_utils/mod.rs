@@ -1,7 +1,7 @@
-use tokio::*;
+// use tokio::*;
 use tokio_postgres::{Error, NoTls, Row};
 
-async fn get_async_connection(query_string: String) -> Result<Vec<Row>, Error> {
+pub async fn get_async_connection(query_string: String) -> Result<Vec<Row>, Error> {
     let connection_url = "postgres://postgres@localhost:5432/gnar_bar";
 
     let (client, connection) =

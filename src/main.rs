@@ -1,6 +1,12 @@
 use actix_cors::Cors;
 use actix_web::{http::header, web, App, HttpRequest, HttpServer, Responder};
 
+mod app_utils;
+mod handlers;
+mod models;
+mod responders;
+mod queries;
+
 async fn greet(req: HttpRequest) -> impl Responder {
     let name = req.match_info().get("name").unwrap_or("World");
     format!("Hello {}!", &name)
@@ -19,7 +25,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(cors)
             .route("/", web::get().to(greet))
-            .route("/{name}", web::get().to(greet))
+            .route("/producers", web::get().to(responders::fetch_producer_list))
     })
     .bind(("127.0.0.1", 8080))?
     .run()
