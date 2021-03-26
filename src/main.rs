@@ -1,4 +1,5 @@
 use actix_cors::Cors;
+use actix_rt;
 use actix_web::{http::header, web, App, HttpRequest, HttpServer, Responder};
 
 mod app_utils;
@@ -12,7 +13,8 @@ async fn greet(req: HttpRequest) -> impl Responder {
     format!("Hello {}!", &name)
 }
 
-#[actix_web::main]
+// #[actix_web::main]
+#[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         let cors = Cors::default()
