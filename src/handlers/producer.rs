@@ -1,10 +1,10 @@
-use tokio_postgres::Error;
+use super::utils::gather_producers;
 
 use crate::app_utils::get_async_connection;
 use crate::models::ProducerDB;
 use crate::queries;
 
-use super::utils::gather_producers;
+use tokio_postgres::Error;
 
 pub async fn handle_producer_list() -> Result<Vec<ProducerDB>, Error> {
     let raw_query = queries::get_producer_list();

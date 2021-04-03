@@ -56,6 +56,7 @@ const App = () => {
     return (
         <div className="main-container">
             <h1 className="header">The Gnar Bar</h1>
+
             <div className="list-container">
                 <SelectionList
                     itemType={ItemType.BEER}
@@ -73,6 +74,7 @@ const App = () => {
                     handlerFn={handleSelectSnack}
                 />
             </div>
+
             <div className="summary-container">
                 <SessionSummary
                     beerList={createItemMap(beersSelected)}
@@ -80,6 +82,7 @@ const App = () => {
                     snackList={createItemMap(snacksSelected)}
                 />
             </div>
+            <button onClick={onClickSubmit}>Submit order</button>
         </div>
     );
 };

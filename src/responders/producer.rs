@@ -5,10 +5,7 @@ use crate::{
     models::{transform_producer, ErrorResponse, Producer},
 };
 
-fn http_error(
-    err: tokio_postgres::Error,
-    method_name: String,
-) -> HttpResponse {
+fn http_error(err: tokio_postgres::Error, method_name: String) -> HttpResponse {
     return HttpResponse::ServiceUnavailable().json(ErrorResponse {
         message: format!("ERROR: {} {:?}", method_name, err),
     });
@@ -21,7 +18,7 @@ pub async fn fetch_producer_list() -> impl Responder {
         Err(error) => {
             println!("got here error");
             http_error(error, String::from("fetch_producer_list"))
-        },
+        }
         Ok(list) => {
             println!("got here ok");
             let iterator = list.into_iter();
@@ -29,10 +26,10 @@ pub async fn fetch_producer_list() -> impl Responder {
 
             for (_, item) in iterator.enumerate() {
                 collected.push(transform_producer(item));
-            };
+            }
 
             HttpResponse::Ok().json(collected)
-        },
+        }
     };
 
     println!("producer_list: {:?}", &responder);
