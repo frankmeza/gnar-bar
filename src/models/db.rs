@@ -7,6 +7,7 @@ pub struct ErrorResponse {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ProducerDB {
+    pub id: String,
     pub name: String,
     pub city: String,
     pub country: String,
