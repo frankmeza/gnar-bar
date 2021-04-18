@@ -3,31 +3,29 @@ use tokio_postgres::{row::Row, Error};
 
 use crate::{
     db,
-    models::{
-        app::{Producer},
-        db::{ProducerDB},
-        transformers,
-    },
+    models::{app::Producer, db::ProducerDB, transformers},
 };
 
 pub async fn producer_dao_get_producers() -> Result<Vec<Producer>, io::Error> {
     let client = match db::connect().await {
         Err(err) => {
-            panic!("{}", err);
+            panic!("{}", err); // todo figure out another approach
         }
-        Ok(c) => c
+        Ok(c) => c,
     };
 
-    let rows = &client.query("SELECT * from producers;", &[]).await.unwrap();
+    // todo create queries mod, get query from there
+    let rows = &client.query("SELECT * from producers;", &[]).await.unwrap(); // todo fix unwrap
 
     let producers_db = match gather_producers(&rows, Vec::new()) {
         Err(err) => {
-            panic!("{}", err);
+            panic!("{}", err);// todo figure out another approach
         }
-        Ok(pp_db) => pp_db
+        Ok(pp_db) => pp_db,
     };
 
-    let producers = producers_db.iter()
+    let producers = producers_db
+        .iter()
         .map(|p| transformers::transform_producer(p))
         .collect();
 
