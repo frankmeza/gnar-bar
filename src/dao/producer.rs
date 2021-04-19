@@ -6,7 +6,7 @@ use crate::{
     models::{app::Producer, db::ProducerDB, transformers},
 };
 
-pub async fn producer_dao_get_producers() -> Result<Vec<Producer>, io::Error> {
+pub async fn get_producers() -> Result<Vec<Producer>, io::Error> {
     let client = match db::connect().await {
         Err(err) => {
             panic!("{}", err); // todo figure out another approach
@@ -19,7 +19,7 @@ pub async fn producer_dao_get_producers() -> Result<Vec<Producer>, io::Error> {
 
     let producers_db = match gather_producers(&rows, Vec::new()) {
         Err(err) => {
-            panic!("{}", err);// todo figure out another approach
+            panic!("{}", err); // todo figure out another approach
         }
         Ok(pp_db) => pp_db,
     };

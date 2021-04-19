@@ -1,9 +1,9 @@
 use std::io;
 
-use crate::{dao::producer, models::app::Producer};
+use crate::{dao, models::app::Producer};
 
 pub async fn get_producers() -> Result<Vec<Producer>, io::Error> {
-    let pp = producer::producer_dao_get_producers().await; // todo rn fn and module
+    let pp = dao::producer::get_producers().await;
 
     let producers = match pp {
         Err(err) => {
