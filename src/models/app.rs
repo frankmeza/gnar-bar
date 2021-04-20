@@ -5,7 +5,7 @@ pub struct Producer {
     pub name: String,
     pub city: String,
     pub country: String,
-    pub produces_beer: bool,
-    pub produces_food: bool,
-    pub produces_wine: bool,
+    pub is_brewery: bool,
+    pub is_kitchen: bool,
+    pub is_winery: bool,
 }
