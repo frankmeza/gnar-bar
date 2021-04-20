@@ -5,6 +5,7 @@ mod dao;
 mod db;
 mod handlers;
 mod models;
+mod queries;
 mod services;
 
 #[actix_rt::main]
