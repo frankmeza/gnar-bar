@@ -4,25 +4,24 @@ use tokio_postgres::{row::Row, Error};
 use crate::{
     db,
     models::{app::Producer, db::ProducerDB, transformers},
+    queries,
 };
 
 pub async fn get_producers() -> Result<Vec<Producer>, io::Error> {
-    let client = match db::connect().await {
-        Err(err) => {
-            panic!("{}", err); // todo figure out another approach
-        }
-        Ok(c) => c,
-    };
+    let client = db::connect().await?;
 
-    // todo create queries mod, get query from there
-    let rows = &client.query("SELECT * from producers;", &[]).await.unwrap(); // todo fix unwrap
+    let statement = client
+        .prepare_typed(&queries::producer::get_all_producers(), &[])
+        .await
+        .expect("get_producers: error writing SQL statement");
 
-    let producers_db = match gather_producers(&rows, Vec::new()) {
-        Err(err) => {
-            panic!("{}", err); // todo figure out another approach
-        }
-        Ok(pp_db) => pp_db,
-    };
+    let rows = &client
+        .query(&statement, &[])
+        .await
+        .expect("get_producers: error getting rows");
+
+    let producers_db = gather_producers(&rows, Vec::new())
+        .expect("get_producers: error with producers_db");
 
     let producers = producers_db
         .iter()
@@ -42,9 +41,12 @@ pub fn gather_producers(
             name: r.get(1),
             city: r.get(2),
             country: r.get(3),
-            produces_beer: r.get(4),
-            produces_food: r.get(5),
-            produces_wine: r.get(6),
+            state: r.get(4),
+            is_brewery: r.get(4),
+            is_winery: r.get(5),
+            is_kitchen: r.get(6),
+            created_at: None,
+            updated_at: None,
         };
 
         producer_list.push(p);
