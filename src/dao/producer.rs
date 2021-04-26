@@ -37,14 +37,14 @@ pub fn gather_producers(
 ) -> Result<Vec<ProducerDB>, Error> {
     for r in rows {
         let p = ProducerDB {
+            city: r.get(1),
+            country: r.get(2),
             id: r.get(0),
-            name: r.get(1),
-            city: r.get(2),
-            country: r.get(3),
-            state: r.get(4),
             is_brewery: r.get(4),
             is_winery: r.get(5),
             is_kitchen: r.get(6),
+            name: r.get(3),
+            state: r.get(7),
             created_at: None,
             updated_at: None,
         };

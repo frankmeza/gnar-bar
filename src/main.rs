@@ -20,7 +20,7 @@ async fn main() -> std::io::Result<()> {
                     ])
                     .allowed_header(header::CONTENT_TYPE)
                     .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
-                    .allowed_origin("http://localhost:10001")
+                    .allowed_origin("http://localhost:3000")
                     .max_age(3600)
                     .finish(),
             )

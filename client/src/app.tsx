@@ -1,32 +1,36 @@
 import React, { useEffect, useState, Fragment } from "react";
+import { Result } from "neverthrow";
 // components
 import SessionSummary from "./components/summary/summary";
 import SelectionList from "./components/selection/selection_list";
 // data
 import { beerList, snackList, wineList } from "../item_data";
-import { Beer, ItemType, Snack, Wine } from "./core_types";
+import { Beer, ItemType, Producer, Snack, Wine } from "./core_types";
 import { createItemMap, handleSelectItem } from "./app_utils";
 // api
-import { submitOrder } from "./api";
+import { fetchProducers } from "./api";
 // styling
 import "./app.scss";
 
-const BUTTON_TEXT = "submit order";
-
 const App = () => {
-    const [availableBeers, setAvailableBeers] = useState([] as Beer[]);
-    const [availableSnacks, setAvailableSnacks] = useState([] as Snack[]);
-    const [availableWines, setAvailableWines] = useState([] as Wine[]);
+    const [availableBeers, setAvailableBeers] = useState<Beer[]>([]);
+    const [availableSnacks, setAvailableSnacks] = useState<Snack[]>([]);
+    const [availableWines, setAvailableWines] = useState<Wine[]>([]);
+    const [producers, setProducers] = useState<Producer[]>([]);
 
-    const [beersSelected, setBeersSelected] = useState([] as Beer[]);
-    const [snacksSelected, setSnacksSelected] = useState([] as Snack[]);
-    const [winesSelected, setWinesSelected] = useState([] as Wine[]);
+    const [beersSelected, setBeersSelected] = useState<Beer[]>([]);
+    const [snacksSelected, setSnacksSelected] = useState<Snack[]>([]);
+    const [winesSelected, setWinesSelected] = useState<Wine[]>([]);
 
     useEffect(() => {
         setAvailableBeers(beerList);
         setAvailableWines(wineList);
         setAvailableSnacks(snackList);
     }, []);
+
+    useEffect(() => {
+        alert(JSON.stringify(producers, null, 4));
+    }, [producers]);
 
     const handleSelectBeer = (beer: Beer) => {
         const beers = handleSelectItem(beer, beersSelected);
@@ -44,13 +48,13 @@ const App = () => {
     };
 
     const onClickSubmit = async () => {
-        const result = await submitOrder({
-            beersSelected,
-            snacksSelected,
-            winesSelected,
-        });
+        const result = await fetchProducers();
 
-        confirm(result);
+        if (result.isOk()) {
+            setProducers(result.value);
+        } else if (result.isErr()) {
+            console.log("error: ", JSON.stringify(result.error));
+        }
     };
 
     return (
