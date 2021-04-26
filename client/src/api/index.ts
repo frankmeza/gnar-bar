@@ -1,17 +1,17 @@
-import { Beer, Snack, Wine } from "../core_types";
-import { postFetch } from "./utils";
+import { Producer } from "../core_types";
+import { getFetch } from "./utils";
 
-type OrderParams = {
-    beersSelected: Beer[];
-    snacksSelected: Snack[];
-    winesSelected: Wine[];
-};
+const FETCH_PRODUCERS_URL = "http://localhost:8080/producers";
 
-const SUBMIT_ORDER_URL = "http://localhost:8080/submit_order";
+export const fetchProducers = async () => {
+    const response = await getFetch(FETCH_PRODUCERS_URL);
 
-export const submitOrder = async (order: OrderParams) => {
-    const response = await postFetch(SUBMIT_ORDER_URL, order);
+    const responseData = response
+        .map(successResult => {
+            const producers: Producer[] = Object.values(successResult);
+            return producers;
+        })
+        .mapErr(errResult => errResult);
 
-    const result = response.ok ? order : { error: true };
-    return JSON.stringify(result);
+    return responseData;
 };

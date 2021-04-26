@@ -1,0 +1,56 @@
+use std::io;
+use tokio_postgres::{row::Row, Error};
+
+use crate::{
+    db,
+    models::{app::Producer, db::ProducerDB, transformers},
+    queries,
+};
+
+pub async fn get_producers() -> Result<Vec<Producer>, io::Error> {
+    let client = db::connect().await?;
+
+    let statement = client
+        .prepare_typed(&queries::producer::get_all_producers(), &[])
+        .await
+        .expect("get_producers: error writing SQL statement");
+
+    let rows = &client
+        .query(&statement, &[])
+        .await
+        .expect("get_producers: error getting rows");
+
+    let producers_db = gather_producers(&rows, Vec::new())
+        .expect("get_producers: error with producers_db");
+
+    let producers = producers_db
+        .iter()
+        .map(|p| transformers::transform_producer(p))
+        .collect();
+
+    return Ok(producers);
+}
+
+pub fn gather_producers(
+    rows: &Vec<Row>,
+    mut producer_list: Vec<ProducerDB>,
+) -> Result<Vec<ProducerDB>, Error> {
+    for r in rows {
+        let p = ProducerDB {
+            city: r.get(1),
+            country: r.get(2),
+            id: r.get(0),
+            is_brewery: r.get(4),
+            is_winery: r.get(5),
+            is_kitchen: r.get(6),
+            name: r.get(3),
+            state: r.get(7),
+            created_at: None,
+            updated_at: None,
+        };
+
+        producer_list.push(p);
+    }
+
+    return Ok(producer_list);
+}
