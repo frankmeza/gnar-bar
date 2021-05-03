@@ -1,5 +1,5 @@
 pub mod app;
-pub use app::Producer;
+pub use app::{Producer, Snack};
 
 pub mod db;
 pub use db::{ErrorResponse, ProducerDB};
