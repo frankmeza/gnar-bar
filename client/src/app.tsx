@@ -1,15 +1,13 @@
-import React, { useEffect, useState, Fragment } from "react";
-import { Result } from "neverthrow";
-// components
-import SessionSummary from "./components/summary/summary";
-import SelectionList from "./components/selection/selection_list";
-// data
+import React, { useEffect, useState } from "react";
+
 import { beerList, snackList, wineList } from "../item_data";
 import { Beer, ItemType, Producer, Snack, Wine } from "./core_types";
 import { createItemMap, handleSelectItem } from "./app_utils";
-// api
 import { fetchProducers } from "./api";
-// styling
+
+import SessionSummary from "./components/summary/summary";
+import SelectionList from "./components/selection/selection_list";
+
 import "./app.scss";
 
 const App = () => {
@@ -29,7 +27,9 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        alert(JSON.stringify(producers, null, 4));
+        if (!!producers.length) {
+            alert(JSON.stringify(producers, null, 4));
+        }
     }, [producers]);
 
     const handleSelectBeer = (beer: Beer) => {
@@ -53,7 +53,7 @@ const App = () => {
         if (result.isOk()) {
             setProducers(result.value);
         } else if (result.isErr()) {
-            console.log("error: ", JSON.stringify(result.error));
+            console.error("error: ", JSON.stringify(result.error));
         }
     };
 
