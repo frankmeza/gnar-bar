@@ -30,6 +30,7 @@ export enum BeerColor {
     DARK = "dark",
     LIGHT = "light",
     RED = "red",
+    BROWN = "brown",
     UNKNOWN = "unknown",
 }
 
