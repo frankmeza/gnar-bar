@@ -1,6 +1,12 @@
+use crate::{models::app::Snack, services, utils};
 use actix_web::{get, HttpResponse};
+use serde_derive::Serialize;
 
-use crate::services;
+#[derive(Serialize)]
+struct SnacksResponse {
+    snacks: Vec<Snack>,
+    sent_at: i64,
+}
 
 #[get("/snacks")]
 pub async fn fetch_snack_list() -> HttpResponse {
@@ -8,7 +14,10 @@ pub async fn fetch_snack_list() -> HttpResponse {
 
     let response = match snacks {
         Err(_) => HttpResponse::NotFound().finish(),
-        Ok(snacks) => HttpResponse::Ok().json(snacks),
+        Ok(snacks) => HttpResponse::Ok().json(SnacksResponse {
+            snacks,
+            sent_at: utils::time::get_timestamp(),
+        }),
     };
 
     return response;
