@@ -1,18 +1,32 @@
 import { Result } from "neverthrow";
-import { Producer } from "../core_types";
+import { Producer, Snack } from "../core_types";
+import { FETCH_PRODUCERS_URL, FETCH_SNACKS_URL } from "./url";
 import { getFetch } from "./utils";
 
-const FETCH_PRODUCERS_URL = "http://localhost:8080/producers";
-
+// todo fix for new json body
 export const fetchProducers = async (): Promise<Result<Producer[], Error>> => {
     const response = await getFetch(FETCH_PRODUCERS_URL);
 
-    const responseData = response
+    const producersResponseData = response
         .map(successResult => {
             const producers: Producer[] = Object.values(successResult);
             return producers;
         })
         .mapErr(errResult => errResult);
 
-    return responseData;
+    return producersResponseData;
+};
+
+// todo fix for new json body
+export const fetchSnacks = async (): Promise<Result<Snack[], Error>> => {
+    const response = await getFetch(FETCH_SNACKS_URL);
+
+    const snacksResponseData = response
+        .map(successResult => {
+            const snacks: Snack[] = Object.values(successResult);
+            return snacks;
+        })
+        .mapErr(errResult => errResult);
+
+    return snacksResponseData;
 };
