@@ -1,12 +1,11 @@
-use chrono::{DateTime, Utc};
 use serde_derive::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Debug, Deserialize, Serialize)]
 pub struct ErrorResponse {
     pub message: String,
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Debug, Deserialize, Serialize)]
 pub struct ProducerDB {
     pub id: String,
     pub city: String,
@@ -16,6 +15,19 @@ pub struct ProducerDB {
     pub is_winery: bool,
     pub name: String,
     pub state: String,
-    pub created_at: Option<DateTime<Utc>>,
-    pub updated_at: Option<DateTime<Utc>>,
+    pub created_at: i64,
+    pub updated_at: i64,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct SnackDB {
+    pub id: String,
+    pub producer_id: String,
+    pub cost: i32,
+    pub name: String,
+    pub kind: String,
+    pub is_dairy: bool,
+    pub is_vegetarian: bool,
+    pub created_at: i64,
+    pub updated_at: i64,
 }
