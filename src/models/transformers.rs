@@ -1,6 +1,6 @@
 use super::{
-    app::{Producer, Snack},
-    db::{ProducerDB, SnackDB},
+    app::{Beer, Producer, Snack},
+    db::{BeerDB, ProducerDB, SnackDB},
 };
 
 fn copy_to_string(string: &str) -> String {
@@ -15,6 +15,8 @@ pub fn transform_producer(p: &ProducerDB) -> Producer {
         is_brewery: p.is_brewery,
         is_kitchen: p.is_kitchen,
         is_winery: p.is_winery,
+
+        id: copy_to_string(&p.id),
         created_at: p.created_at,
         updated_at: p.updated_at,
     };
@@ -22,14 +24,32 @@ pub fn transform_producer(p: &ProducerDB) -> Producer {
 
 pub fn transform_snack(s: &SnackDB) -> Snack {
     return Snack {
-        id: copy_to_string(&s.id),
-        producer_id: copy_to_string(&s.producer_id),
         cost: s.cost,
-        name: copy_to_string(&s.name),
-        kind: copy_to_string(&s.kind),
         is_dairy: s.is_dairy,
         is_vegetarian: s.is_vegetarian,
+        kind: copy_to_string(&s.kind),
+        name: copy_to_string(&s.name),
+
+        id: copy_to_string(&s.id),
+        producer_id: copy_to_string(&s.producer_id),
         created_at: s.created_at,
         updated_at: s.updated_at,
+    };
+}
+
+pub fn transform_beer(b: &BeerDB) -> Beer {
+    return Beer {
+        abv: b.abv,
+        color: copy_to_string(&b.color),
+        cost: b.cost,
+        name: copy_to_string(&b.name),
+        finish: copy_to_string(&b.finish),
+        volume: b.volume,
+        kind: copy_to_string(&b.kind),
+
+        id: copy_to_string(&b.id),
+        producer_id: copy_to_string(&b.producer_id),
+        created_at: b.created_at,
+        updated_at: b.updated_at,
     };
 }
