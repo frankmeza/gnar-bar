@@ -26,6 +26,7 @@ async fn main() -> Result<()> {
                     .max_age(3600)
                     .finish(),
             )
+            .service(handlers::fetch_beer_list)
             .service(handlers::fetch_producer_list)
             .service(handlers::fetch_snack_list);
     })
