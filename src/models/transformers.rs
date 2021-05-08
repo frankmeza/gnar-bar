@@ -1,6 +1,6 @@
 use super::{
-    app::{Beer, Producer, Snack},
-    db::{BeerDB, ProducerDB, SnackDB},
+    app::{Beer, Producer, Snack, Wine},
+    db::{BeerDB, ProducerDB, SnackDB, WineDB},
 };
 
 fn copy_to_string(string: &str) -> String {
@@ -51,5 +51,22 @@ pub fn transform_beer(b: &BeerDB) -> Beer {
         producer_id: copy_to_string(&b.producer_id),
         created_at: b.created_at,
         updated_at: b.updated_at,
+    };
+}
+
+pub fn transform_wine(w: &WineDB) -> Wine {
+    return Wine {
+        abv: w.abv,
+        color: copy_to_string(&w.color),
+        cost: w.cost,
+        name: copy_to_string(&w.name),
+        finish: copy_to_string(&w.finish),
+        volume: w.volume,
+        kind: copy_to_string(&w.kind),
+
+        id: copy_to_string(&w.id),
+        producer_id: copy_to_string(&w.producer_id),
+        created_at: w.created_at,
+        updated_at: w.updated_at,
     };
 }

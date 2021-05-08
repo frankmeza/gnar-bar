@@ -3,40 +3,40 @@ use tokio_postgres::{row::Row, Error};
 
 use crate::{
     db,
-    models::{app::Beer, db::BeerDB, transformers},
+    models::{app::Wine, db::WineDB, transformers},
     queries,
 };
 
-pub async fn get_beers() -> Result<Vec<Beer>, io::Error> {
+pub async fn get_wines() -> Result<Vec<Wine>, io::Error> {
     let client = db::connect().await?;
 
     let statement = client
-        .prepare_typed(&queries::beer::get_all_beers(), &[])
+        .prepare_typed(&queries::wine::get_all_wines(), &[])
         .await
-        .expect("get_beers: error writing SQL statement");
+        .expect("get_wines: error writing SQL statement");
 
     let rows = &client
         .query(&statement, &[])
         .await
-        .expect("get_beers: error getting rows");
+        .expect("get_wines: error getting rows");
 
-    let beers_db = gather_beers(&rows, Vec::new())
-        .expect("get_beers: error with beers_db");
+    let wines_db = gather_wines(&rows, Vec::new())
+        .expect("get_wines: error with wines_db");
 
-    let beers = beers_db
+    let wines = wines_db
         .iter()
-        .map(|b| transformers::transform_beer(b))
+        .map(|w| transformers::transform_wine(w))
         .collect();
 
-    return Ok(beers);
+    return Ok(wines);
 }
 
-pub fn gather_beers(
+pub fn gather_wines(
     rows: &Vec<Row>,
-    mut beer_list: Vec<BeerDB>,
-) -> Result<Vec<BeerDB>, Error> {
+    mut wine_list: Vec<WineDB>,
+) -> Result<Vec<WineDB>, Error> {
     for r in rows {
-        let s = BeerDB {
+        let s = WineDB {
             id: r.get(0),
             producer_id: r.get(1),
             name: r.get(2),
@@ -50,8 +50,8 @@ pub fn gather_beers(
             updated_at: r.get(10),
         };
 
-        beer_list.push(s);
+        wine_list.push(s);
     }
 
-    return Ok(beer_list);
+    return Ok(wine_list);
 }

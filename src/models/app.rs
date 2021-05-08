@@ -43,3 +43,19 @@ pub struct Beer {
     pub created_at: i64,
     pub updated_at: i64,
 }
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Wine {
+    pub abv: i32,
+    pub color: String,
+    pub cost: i32,
+    pub name: String,
+    pub finish: String,
+    pub volume: i32,
+    pub kind: String,
+    // ids, timestamps
+    pub id: String,
+    pub producer_id: String,
+    pub created_at: i64,
+    pub updated_at: i64,
+}
