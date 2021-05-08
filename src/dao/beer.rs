@@ -25,7 +25,7 @@ pub async fn get_beers() -> Result<Vec<Beer>, io::Error> {
 
     let beers = beers_db
         .iter()
-        .map(|s| transformers::transform_beer(s))
+        .map(|b| transformers::transform_beer(b))
         .collect();
 
     return Ok(beers);
