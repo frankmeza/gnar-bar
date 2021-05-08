@@ -1,3 +1,6 @@
+pub mod beer;
+pub use beer::get_beers;
+
 pub mod producer;
 pub use producer::get_producers;
 
