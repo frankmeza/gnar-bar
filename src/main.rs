@@ -28,7 +28,8 @@ async fn main() -> Result<()> {
             )
             .service(handlers::fetch_beer_list)
             .service(handlers::fetch_producer_list)
-            .service(handlers::fetch_snack_list);
+            .service(handlers::fetch_snack_list)
+            .service(handlers::fetch_wine_list);
     })
     .bind(("127.0.0.1", 8080))?
     .run();
