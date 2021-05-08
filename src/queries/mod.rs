@@ -15,3 +15,9 @@ pub mod snack {
         return "SELECT * from snacks;".to_string();
     }
 }
+
+pub mod wine {
+    pub fn get_all_wines() -> String {
+        return "SELECT * from wines;".to_string();
+    }
+}
