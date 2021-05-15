@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>GnarBar</title>
+
+    <!-- ALPINE JS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <!-- SEMANTIC-UI -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+</head>
+
+<body>
+
+    <div x-data="getData()" x-init="fetchProducers()">
+        <h1> This is the Gnar Bar </h1>
+
+        <div>Beers here!!</div>
+        <button class="ui button" @click="console.log(this.producers)">
+            log it
+        </button>
+    </div>
+</body>
+
+<script>
+    const fetchBeers = () => {
+        fetch("http://localhost:8080/beers")
+            .then(rs => rs.json())
+            .then(rs => beers = rs.beers);
+    };
+
+    const fetchProducers = () => {
+        fetch("http://localhost:8080/producers")
+            .then(rs => rs.json())
+            .then(rs => producers = rs.producers);
+    };
+
+    const fetchSnacks = () => {
+        fetch("http://localhost:8080/snacks")
+            .then(rs => rs.json())
+            .then(rs => { snacks = rs.snacks });
+    };
+
+    const fetchWines = () => {
+        fetch("http://localhost:8080/wines")
+            .then(rs => rs.json())
+            .then(rs => { wines = rs.wines });
+    };
+
+    const getData = () => {
+        console.log("getData fires!");
+        return {
+            beers: [],
+            producers: [],
+            snacks: [],
+            wines: [],
+        };
+    };
+</script>
+
+</html>

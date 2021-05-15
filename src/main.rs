@@ -1,5 +1,6 @@
 use actix_cors::Cors;
-use actix_web::{http::header, App, HttpServer};
+use actix_web::{App, HttpServer}; // development
+// use actix_web::{http::header, App, HttpServer}; // otherwise
 use std::io::Result;
 
 mod dao;
@@ -16,14 +17,19 @@ async fn main() -> Result<()> {
         return App::new()
             .wrap(
                 Cors::new()
-                    .allowed_headers(vec![
-                        header::AUTHORIZATION,
-                        header::ACCEPT,
-                    ])
-                    .allowed_header(header::CONTENT_TYPE)
-                    .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
-                    .allowed_origin("http://localhost:3000")
-                    .max_age(3600)
+                    // // use this for development to make CORS requests
+                    .supports_credentials()
+                    // // use this otherwise
+                    // .allowed_headers(vec![
+                    //     header::AUTHORIZATION,
+                    //     header::ACCEPT,
+                    // ])
+                    // .allowed_header(header::CONTENT_TYPE)
+                    // .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
+                    // .allowed_origin("*")
+                    // // .allowed_origin("http://localhost:3000")
+                    // .max_age(3600)
+                    // // leave finish() alone
                     .finish(),
             )
             .service(handlers::fetch_beer_list)
